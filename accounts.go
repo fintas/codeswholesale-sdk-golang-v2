@@ -14,13 +14,12 @@ type Account struct {
 	CurrentBalance float64 `json:"currentBalance"`
 	CurrentCredit  int     `json:"currentCredit"`
 	TotalToUse     float64 `json:"totalToUse"`
-	Links          Links   `json:"links"`
+	Links          []Links `json:"links"`
 }
 
 // GetAccount provides you whole information about your account from name to actual balance with credit included.
 func (sdk *SDK) GetAccount() (*Account, error) {
 	body, err := sdk.apiGET(getAccount)
-	fmt.Println(string(body))
 	if err != nil {
 		return nil, err
 	}
