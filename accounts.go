@@ -2,7 +2,6 @@ package codeswholesalesdkgolangv2
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 const getAccount = "/v2/accounts/current"
