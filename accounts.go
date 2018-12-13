@@ -11,7 +11,7 @@ type Account struct {
 	FullName       string  `json:"fullName"`
 	Email          string  `json:"email"`
 	CurrentBalance float64 `json:"currentBalance"`
-	CurrentCredit  int     `json:"currentCredit"`
+	CurrentCredit  float64 `json:"currentCredit"`
 	TotalToUse     float64 `json:"totalToUse"`
 	Links          []struct {
 		Rel         string      `json:"rel"`
