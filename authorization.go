@@ -51,12 +51,17 @@ func (sdk *SDK) authorize() error {
 		return err
 	}
 
+	// Parse auth
 	auth := &Authorization{}
 	err = json.Unmarshal(body, auth)
 	fmt.Println(string(body))
 	if err != nil {
 		return err
 	}
+
+	// Set expire timestamp
+	now := time.Now()
+	now.Add(time.Duration(auth.ExpiresIn) * time.Second)
 
 	sdk.authorization = auth
 
