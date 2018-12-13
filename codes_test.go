@@ -7,8 +7,8 @@ import (
 
 func TestSDK_GetCode(t *testing.T) {
 	sdk := &SDK{
-		clientID:        "1cd7ede60da5f9359ec368343ab49e11",                             //"ff72ce315d1259e822f47d87d02d261e",                             // Sandbox credentials
-		clientSecret:    "$2a$10$T58Tbz/hgPrghjUDbRIKV.KRspoV6/6QcTV158mITvFu6JBYvlhSq", //"$2a$10$E2jVWDADFA5gh6zlRVcrlOOX01Q/HJoT6hXuDMJxek.YEo.lkO2T6", // Sandbox credentials
+		clientID:        "ff72ce315d1259e822f47d87d02d261e",                             // Sandbox credentials
+		clientSecret:    "$2a$10$E2jVWDADFA5gh6zlRVcrlOOX01Q/HJoT6hXuDMJxek.YEo.lkO2T6", // Sandbox credentials
 		clientSignature: "-",
 		live:            true, //false,
 	}
