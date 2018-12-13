@@ -2,6 +2,7 @@ package codeswholesalesdkgolangv2
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 const getDescription = "/v2/products/%s/description"
@@ -63,34 +64,18 @@ type Videos struct {
 	URL             string `json:"url"`
 }
 
-// GetProducts gets all products from price list.
-func (sdk *SDK) GetProducts() ([]Product, error) {
-	body, err := sdk.apiGET(getProducts)
+// GetProductDescription gets a product description for a specific product.
+func (sdk *SDK) GetProductDescription(productID string) (*ProductDescription, error) {
+	body, err := sdk.apiGET(fmt.Sprintf(getDescription, productID))
 	if err != nil {
 		return nil, err
 	}
 
-	list := &ProductList{}
-	err = json.Unmarshal(body, list)
+	description := &ProductDescription{}
+	err = json.Unmarshal(body, description)
 	if err != nil {
 		return nil, err
 	}
 
-	return list.Items, nil
-}
-
-// GetProduct gets a specific product from price list.
-func (sdk *SDK) GetProduct(productID string) (*Product, error) {
-	body, err := sdk.apiGET(getProduct, productID)
-	if err != nil {
-		return nil, err
-	}
-
-	product := &Product{}
-	err = json.Unmarshal(body, product)
-	if err != nil {
-		return nil, err
-	}
-
-	return product, nil
+	return description, nil
 }
