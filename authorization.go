@@ -62,6 +62,7 @@ func (sdk *SDK) authorize() error {
 	// Set expire timestamp
 	now := time.Now()
 	now.Add(time.Duration(auth.ExpiresIn) * time.Second)
+	auth.expires = &now
 
 	sdk.authorization = auth
 
