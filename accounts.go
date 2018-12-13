@@ -13,7 +13,15 @@ type Account struct {
 	CurrentBalance float64 `json:"currentBalance"`
 	CurrentCredit  int     `json:"currentCredit"`
 	TotalToUse     float64 `json:"totalToUse"`
-	Links          []Links `json:"links"`
+	Links          []struct {
+		Rel         string      `json:"rel"`
+		Href        string      `json:"href"`
+		Hreflang    interface{} `json:"hreflang"`
+		Media       interface{} `json:"media"`
+		Title       interface{} `json:"title"`
+		Type        interface{} `json:"type"`
+		Deprecation interface{} `json:"deprecation"`
+	} `json:"links"`
 }
 
 // GetAccount provides you whole information about your account from name to actual balance with credit included.
